@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CCI/CCI.iml" filepath="$PROJECT_DIR$/CCI/CCI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Problems.iml" filepath="$PROJECT_DIR$/Problems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/niuke/niuke.iml" filepath="$PROJECT_DIR$/niuke/niuke.iml" />
+    </modules>
+  </component>
+</project>
