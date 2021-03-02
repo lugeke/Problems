@@ -18,6 +18,9 @@ public class ListNode {
         this.next = next;
     }
 
+    public ListNode() {
+    }
+
     public ListNode(List<Integer> list) {
         ListNode head = null;
 
