@@ -39,11 +39,9 @@ public class ReverseKGroup {
 
 
     ListNode reverse(ListNode head) {
-        if (head == null) return null;
 
-        ListNode h = head;
-        ListNode p = h.next;
-        h.next = null;
+        ListNode h = null, p = head;
+
         while (p != null) {
             ListNode q = p.next;
             p.next = h;
