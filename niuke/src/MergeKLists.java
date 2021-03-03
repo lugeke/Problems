@@ -49,4 +49,43 @@ public class MergeKLists {
         return dummy.next;
     }
 
+
+    // 用分治法
+    public static ListNode mergeKListsDC(ListNode[] lists) {
+        return divideAndConquer(lists, 0, lists.length - 1);
+    }
+
+    private static ListNode divideAndConquer(ListNode[] lists, int start, int end) {
+        if (start > end) return null;
+        if (start == end) return lists[start];
+
+        int mid = start + (end - start) / 2;
+
+        ListNode la = divideAndConquer(lists, start, mid);
+        ListNode lb = divideAndConquer(lists, mid + 1, end);
+        return merge(la, lb);
+    }
+
+    private static ListNode merge(ListNode la, ListNode lb) {
+
+        ListNode dummy = new ListNode(), tail = dummy;
+        ListNode p = la, q = lb;
+        while (p != null && q != null) {
+            if (p.data < q.data) {
+                tail.next = p;
+                tail = p;
+                p = p.next;
+            } else {
+                tail.next = q;
+                tail = q;
+                q = q.next;
+            }
+        }
+
+        if ( p != null) tail.next = p;
+        else tail.next = q;
+
+        return dummy.next;
+    }
+
 }

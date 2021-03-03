@@ -41,4 +41,21 @@ public class MergeKListsTest {
         assertEquals(result, MergeKLists.mergeKListsPriorityQueue(lists).toList());
 
     }
+
+    @Test
+    public void mergeKLists2() {
+
+        ArrayList<ListNode> lists = new ArrayList<>();
+
+        lists.add(new ListNode(Arrays.asList(1, 4, 5, 10)));
+        lists.add(new ListNode(Arrays.asList(2)));
+        lists.add(new ListNode(Arrays.asList(3, 6, 7)));
+        lists.add(new ListNode(Arrays.asList(8, 9)));
+
+        ListNode[] ary = lists.toArray(new ListNode[0]);
+
+        List<Integer> result = IntStream.rangeClosed(1, 10).boxed().collect(Collectors.toList());
+        assertEquals(result, MergeKLists.mergeKListsDC(ary).toList());
+
+    }
 }
