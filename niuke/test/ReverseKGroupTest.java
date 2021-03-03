@@ -2,6 +2,7 @@ import ds.ListNode;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.Assert.*;
 
@@ -14,6 +15,22 @@ public class ReverseKGroupTest {
         l = new ReverseKGroup().reverse(l);
         assertEquals(Arrays.asList(5, 4, 3, 2, 1), l.toList());
 
+    }
+
+    @Test
+    public void reverse3() {
+        ListNode l = null;
+
+        l = new ReverseKGroup().reverse(l);
+        assertNull(l);
+    }
+
+    @Test
+    public void reverse4() {
+        ListNode l = new ListNode(Collections.singletonList(1));
+
+        l = new ReverseKGroup().reverse(l);
+        assertEquals(Collections.singletonList(1), l.toList());
     }
 
     @Test
