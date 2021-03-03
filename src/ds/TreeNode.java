@@ -1,6 +1,6 @@
 package ds;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class TreeNode {
@@ -10,19 +10,19 @@ public class TreeNode {
         this.data = data;
     }
 
-    public TreeNode(Integer[] ary) {
-        if (ary.length == 0) throw new IllegalArgumentException();
-        this.data = ary[0];
+    public TreeNode(List<Integer> list) {
+        if (list.size() == 0) throw new IllegalArgumentException();
+        this.data = list.get(0);
 
-        TreeNode[] treeNodes = Arrays.stream(ary)
+        TreeNode[] treeNodes = list.stream()
                 .map(x -> x != null ? new TreeNode(x) : null)
                 .toArray(TreeNode[]::new);
 
         treeNodes[0] = this;
-        for (int i = 0; i < ary.length/2; i++) {
+        for (int i = 0; i < list.size()/2; i++) {
             if (treeNodes[i] != null) {
                 treeNodes[i].left = treeNodes[i * 2 + 1];
-                if (i * 2 + 2 < ary.length)
+                if (i * 2 + 2 < list.size())
                   treeNodes[i].right = treeNodes[i * 2 + 2];
             }
         }
