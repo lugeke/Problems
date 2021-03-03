@@ -1,7 +1,9 @@
 import ds.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class IsSymmetric {
 
@@ -54,6 +56,28 @@ class IsSymmetricIterative {
             if (m == null || n == null) return false;
             if (m.data != n.data) return false;
         }
+        return true;
+    }
+
+    public static boolean isSymmetric1 (TreeNode root) {
+        if (root == null) return true;
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root.left);
+        q.offer(root.right);
+
+        while (!q.isEmpty()) {
+            TreeNode m = q.poll();
+            TreeNode n = q.poll();
+            if (m == null && n == null) continue;
+            if (m == null || n == null) return false;
+            if (m.data != n.data) return false;
+            q.offer(m.left);
+            q.offer(n.right);
+            q.offer(m.right);
+            q.offer(n.left);
+        }
+
         return true;
     }
 }
