@@ -39,7 +39,8 @@ public class L1114PrintinOrder {
 
 class Foo {
 
-    volatile int x = 1;
+    int x = 1;
+
     public Foo() {
 
     }
