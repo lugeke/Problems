@@ -1,7 +1,9 @@
 import ds.ListNode;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
+import java.util.PriorityQueue;
 
 public class MergeKLists {
 
@@ -25,6 +27,26 @@ public class MergeKLists {
         min.next = mergeKLists(lists);
 
         return min;
+    }
+
+    public static ListNode mergeKListsPriorityQueue(ArrayList<ListNode> lists) {
+
+        lists.removeIf(Objects::isNull);
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.size(), Comparator.comparingInt(n -> n.data));
+        queue.addAll(lists);
+
+        ListNode dummy = new ListNode(), tail = dummy;
+        while (!queue.isEmpty()) {
+            ListNode node = queue.poll();
+            if (node.next != null) {
+                queue.offer(node.next);
+                node.next = null;
+            }
+            tail.next = node;
+            tail = node;
+        }
+
+        return dummy.next;
     }
 
 }
