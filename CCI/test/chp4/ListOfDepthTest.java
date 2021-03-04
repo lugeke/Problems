@@ -28,7 +28,7 @@ public class ListOfDepthTest {
 
     @Test
     public void testMultipleLevel() {
-        TreeNode root = new TreeNode(new Integer[] {1, 2, 3, null, null, 4, 5, null, null, null, null, null, null, 6});
+        TreeNode root = new TreeNode(Arrays.asList(1, 2, 3, null, null, 4, 5, null, null, null, null, null, null, 6));
         List<LinkedList<TreeNode>> list = ListOfDepth.list(root);
 
         assertEquals(4, list.size());
