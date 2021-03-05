@@ -19,7 +19,7 @@ public class MinimalTreeTest {
 
         assertTrue(root.isBST());
         List<Integer> l = new ArrayList<>();
-        root.inOrder(x -> l.add(x.data));
+        root.inOrder(x -> l.add(x.val));
 
 
         // sorted

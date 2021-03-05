@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class TreeNode {
-    public int data;
+    public int val;
 
-    public TreeNode(int data) {
-        this.data = data;
+    public TreeNode(int val) {
+        this.val = val;
     }
 
     public TreeNode(List<Integer> list) {
         if (list.size() == 0) throw new IllegalArgumentException();
-        this.data = list.get(0);
+        this.val = list.get(0);
 
         TreeNode[] treeNodes = list.stream()
                 .map(x -> x != null ? new TreeNode(x) : null)
@@ -75,16 +75,16 @@ public class TreeNode {
             if (!inorder(root.left)) {
                 return false;
             }
-            if (prev != null && root.data <= prev) {
+            if (prev != null && root.val <= prev) {
                 return false;
             }
-            prev = root.data;
+            prev = root.val;
             return inorder(root.right);
         }
     }
 
     @Override
     public String toString() {
-        return String.valueOf(data);
+        return String.valueOf(val);
     }
 }

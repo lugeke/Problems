@@ -22,7 +22,7 @@ public class ListOfDepthTest {
     public void testOneLevel() {
         List<LinkedList<TreeNode>> list = ListOfDepth.list(new TreeNode(4));
         assertEquals(1, list.size());
-        assertEquals(Arrays.asList(4), list.get(0).stream().map(x -> x.data).collect(toList()));
+        assertEquals(Arrays.asList(4), list.get(0).stream().map(x -> x.val).collect(toList()));
     }
 
 
@@ -33,10 +33,10 @@ public class ListOfDepthTest {
 
         assertEquals(4, list.size());
 
-        assertEquals(Arrays.asList(1), list.get(0).stream().map(x -> x.data).collect(toList()));
-        assertEquals(Arrays.asList(2, 3), list.get(1).stream().map(x -> x.data).collect(toList()));
-        assertEquals(Arrays.asList(4, 5), list.get(2).stream().map(x -> x.data).collect(toList()));
-        assertEquals(Arrays.asList(6), list.get(3).stream().map(x -> x.data).collect(toList()));
+        assertEquals(Arrays.asList(1), list.get(0).stream().map(x -> x.val).collect(toList()));
+        assertEquals(Arrays.asList(2, 3), list.get(1).stream().map(x -> x.val).collect(toList()));
+        assertEquals(Arrays.asList(4, 5), list.get(2).stream().map(x -> x.val).collect(toList()));
+        assertEquals(Arrays.asList(6), list.get(3).stream().map(x -> x.val).collect(toList()));
 
     }
 

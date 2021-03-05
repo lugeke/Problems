@@ -19,17 +19,17 @@ public class ReConstructBinaryTreeTest {
 
         List<Integer> preList = new ArrayList<>();
         root.preOrder(node -> {
-            preList.add(node.data);
+            preList.add(node.val);
         });
 
         List<Integer> inList = new ArrayList<>();
         root.inOrder(node -> {
-            inList.add(node.data);
+            inList.add(node.val);
         });
 
         List<Integer> postList = new ArrayList<>();
         root.postOrder(node -> {
-            postList.add(node.data);
+            postList.add(node.val);
         });
 
         assertEquals(toList(pre), preList);

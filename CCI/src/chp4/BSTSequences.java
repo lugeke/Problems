@@ -20,7 +20,7 @@ public class BSTSequences {
     private void allSequences(Set<TreeNode> level) {
 
         if (level.isEmpty()) {
-            result.add(stack.stream().map(n -> n.data).collect(toList()));
+            result.add(stack.stream().map(n -> n.val).collect(toList()));
         }
 
         for (TreeNode node : level) {
@@ -47,7 +47,7 @@ class BSTSequences1 {
         }
 
         LinkedList<Integer> prefix = new LinkedList<>();
-        prefix.add(node.data);
+        prefix.add(node.val);
         /* Recurse on left and right subtrees. */
         ArrayList<LinkedList<Integer>> leftSeq = allSequences(node.left);
         ArrayList<LinkedList<Integer>> rightSeq = allSequences(node.right);

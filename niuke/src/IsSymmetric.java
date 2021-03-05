@@ -17,7 +17,7 @@ public class IsSymmetric {
     private static boolean isSymmetric(TreeNode left, TreeNode right) {
         if (left == null && right == null) return true;
         if (left == null || right == null) return false;
-        if (left.data != right.data) return false;
+        if (left.val != right.val) return false;
 
         return isSymmetric(left.left, right.right) &&
                 isSymmetric(left.right, right.left);
@@ -54,7 +54,7 @@ class IsSymmetricIterative {
             TreeNode n = level.get(j);
             if (m == null && n == null) continue;
             if (m == null || n == null) return false;
-            if (m.data != n.data) return false;
+            if (m.val != n.val) return false;
         }
         return true;
     }
@@ -71,7 +71,7 @@ class IsSymmetricIterative {
             TreeNode n = q.poll();
             if (m == null && n == null) continue;
             if (m == null || n == null) return false;
-            if (m.data != n.data) return false;
+            if (m.val != n.val) return false;
             q.offer(m.left);
             q.offer(n.right);
             q.offer(m.right);
