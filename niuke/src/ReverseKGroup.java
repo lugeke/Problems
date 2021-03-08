@@ -18,6 +18,7 @@ public class ReverseKGroup {
         while (p != null) {
 
             ListNode h = p, q;
+            // p先走k-1步
             for (int i = 0; i < k - 1; i++) {
                 p = p.next;
                 if (p == null) {
@@ -27,6 +28,7 @@ public class ReverseKGroup {
             }
 
             q = p.next;
+            //将p（第K个节点）作为尾巴，然后翻转
             p.next = null;
             tail.next = reverse(h);
 
