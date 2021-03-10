@@ -14,11 +14,11 @@ public class ReturnKth2LastTest {
 
         ListNode head = new ListNode(Arrays.asList(1,2,3,4,5));
 
-        assertEquals(5, ReturnKth2Last.kth2Last(head, 1).data);
-        assertEquals(4, ReturnKth2Last.kth2Last(head, 2).data);
-        assertEquals(3, ReturnKth2Last.kth2Last(head, 3).data);
-        assertEquals(2, ReturnKth2Last.kth2Last(head, 4).data);
-        assertEquals(1, ReturnKth2Last.kth2Last(head, 5).data);
+        assertEquals(5, ReturnKth2Last.kth2Last(head, 1).val);
+        assertEquals(4, ReturnKth2Last.kth2Last(head, 2).val);
+        assertEquals(3, ReturnKth2Last.kth2Last(head, 3).val);
+        assertEquals(2, ReturnKth2Last.kth2Last(head, 4).val);
+        assertEquals(1, ReturnKth2Last.kth2Last(head, 5).val);
 
         assertNull(ReturnKth2Last.kth2Last(head, 6));
         assertNull(ReturnKth2Last.kth2Last(head, 7));

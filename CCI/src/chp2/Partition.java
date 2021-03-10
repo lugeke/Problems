@@ -7,11 +7,11 @@ public class Partition {
         ListNode dummyHead = new ListNode(0);
         ListNode tail = dummyHead, h = null;
         for (ListNode p = head; p != null; p = p.next) {
-            if (p.data < x) {
-                tail.next = new ListNode(p.data);
+            if (p.val < x) {
+                tail.next = new ListNode(p.val);
                 tail = tail.next;
             } else {
-                h = new ListNode(p.data, h);
+                h = new ListNode(p.val, h);
             }
         }
 

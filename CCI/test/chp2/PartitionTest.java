@@ -42,9 +42,9 @@ public class PartitionTest {
 
         for (ListNode p = head; p != null; p = p.next) {
             if (less) {
-                if (p.data >= x) less = false;
+                if (p.val >= x) less = false;
             } else {
-                if (p.data < x) return false;
+                if (p.val < x) return false;
             }
         }
 

@@ -11,8 +11,8 @@ public class SumLists {
         int carry = 0;
         ListNode head = new ListNode(0), tail = head;
         while (i != null || j != null) {
-            int sum = (i != null ? i.data : 0)
-                    + (j != null ? j.data : 0)
+            int sum = (i != null ? i.val : 0)
+                    + (j != null ? j.val : 0)
                     + carry;
             tail.next = new ListNode(sum % 10);
             tail = tail.next;

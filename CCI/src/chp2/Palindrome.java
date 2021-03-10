@@ -6,7 +6,7 @@ public class Palindrome {
 
     public static boolean isPalindrome(ListNode head) {
         for (ListNode r = head.reverse(); r != null && head != null; r = r.next, head = head.next) {
-            if (r.data != head.data) return false;
+            if (r.val != head.val) return false;
         }
         return true;
     }

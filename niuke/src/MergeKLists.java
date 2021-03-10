@@ -17,7 +17,7 @@ public class MergeKLists {
         ListNode min = lists.get(0);
         int index = 0;
         for (int i = 1; i < lists.size(); i++) {
-            if (lists.get(i).data <= min.data) {
+            if (lists.get(i).val <= min.val) {
                 min = lists.get(i);
                 index = i;
             }
@@ -32,7 +32,7 @@ public class MergeKLists {
     public static ListNode mergeKListsPriorityQueue(ArrayList<ListNode> lists) {
 
         lists.removeIf(Objects::isNull);
-        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.size(), Comparator.comparingInt(n -> n.data));
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.size(), Comparator.comparingInt(n -> n.val));
         queue.addAll(lists);
 
         ListNode dummy = new ListNode(), tail = dummy;
@@ -71,7 +71,7 @@ public class MergeKLists {
         ListNode dummy = new ListNode(), tail = dummy;
         ListNode p = la, q = lb;
         while (p != null && q != null) {
-            if (p.data < q.data) {
+            if (p.val < q.val) {
                 tail.next = p;
                 tail = p;
                 p = p.next;

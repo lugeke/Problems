@@ -5,7 +5,7 @@ import ds.ListNode;
 public class DeleteMiddleNode {
 
     public static void delete(ListNode node) {
-        node.data = node.next.data;
+        node.val = node.next.val;
         node.next = node.next.next;
     }
 }
