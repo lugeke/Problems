@@ -19,23 +19,17 @@ public class NC40AddInList {
         // 头插法
         int carry = 0;
         ListNode h = null;
-        while (!(s1.isEmpty() || s2.isEmpty())) {
-            int sum = s1.pop().val + s2.pop().val + carry;
-            carry = sum / 10;
-            h = new ListNode(sum % 10, h);
-        }
-
-        Deque<ListNode> s = s1.isEmpty() ? s2 : s1;
-
-        while (!s.isEmpty()) {
-            int sum = s.pop().val + carry;
+        ListNode a , b;
+        while ((a = s1.pollFirst())  != null | (b = s2.pollFirst()) != null) {
+            int sum = carry;
+            if (a != null) sum += a.val;
+            if (b != null) sum += b.val;
             carry = sum / 10;
             h = new ListNode(sum % 10, h);
         }
 
         if (carry == 1) h = new ListNode(1, h);
         return h;
-
     }
 
 
