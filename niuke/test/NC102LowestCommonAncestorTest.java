@@ -19,5 +19,6 @@ public class NC102LowestCommonAncestorTest {
         assertEquals(3, NC102LowestCommonAncestor.lowestCommonAncestor(root, 6, 8));
         assertEquals(5, NC102LowestCommonAncestor.lowestCommonAncestor(root, 6, 4));
         assertEquals(2, NC102LowestCommonAncestor.lowestCommonAncestor(root, 7, 4));
+        assertEquals(5, NC102LowestCommonAncestor.lowestCommonAncestor(root, 5, 6));
     }
 }
