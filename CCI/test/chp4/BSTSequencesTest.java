@@ -22,8 +22,14 @@ public class BSTSequencesTest {
     @Test
     public void testBig() {
         TreeNode root = new TreeNode(Arrays.asList(5, 3, 8, 2, 4, 7, 9));
+
+        long start = System.currentTimeMillis();
         List<List<Integer>> lists = new BSTSequences().allSequences(root);
+        System.out.println(System.currentTimeMillis() - start);
+
+        start = System.currentTimeMillis();
         ArrayList<LinkedList<Integer>> linkedLists =  new BSTSequences1().allSequences(root);
+        System.out.println(System.currentTimeMillis() - start);
 
         assertEquals(new HashSet<>(lists), new HashSet<>(linkedLists));
     }
