@@ -9,29 +9,31 @@ import static java.util.stream.Collectors.toList;
 public class BSTSequences {
 
     List<List<Integer>> allSequences(TreeNode root) {
-        allSequences(Collections.singleton(root));
+        allSequences(new HashSet<>(Collections.singleton(root)));
         return result;
     }
 
-    private Deque<TreeNode> stack = new ArrayDeque<>();
-
+    private Deque<Integer> stack = new ArrayDeque<>();
     private List<List<Integer>> result = new ArrayList<>();
 
     private void allSequences(Set<TreeNode> level) {
 
         if (level.isEmpty()) {
-            result.add(stack.stream().map(n -> n.val).collect(toList()));
+            result.add(new ArrayList<>(stack));
         }
 
-        for (TreeNode node : level) {
-            stack.addLast(node);
-            Set<TreeNode> next = new HashSet<>(level);
-            next.remove(node);
+        TreeNode[] t = level.toArray(new TreeNode[0]);
+        for (TreeNode node : t) {
+            stack.addLast(node.val);
+            level.remove(node);
+            if (node.left != null) level.add(node.left);
+            if (node.right != null) level.add(node.right);
 
-            if (node.left != null) next.add(node.left);
-            if (node.right != null) next.add(node.right);
+            allSequences(level);
 
-            allSequences(next);
+            level.add(node);
+            if (node.left != null) level.remove(node.left);
+            if (node.right != null) level.remove(node.right);
             stack.removeLast();
         }
 
@@ -64,7 +66,7 @@ class BSTSequences1 {
     }
 
     private void weaveLists(LinkedList<Integer> first, LinkedList<Integer> second,
-                    ArrayList<LinkedList<Integer>> results, LinkedList<Integer> prefix) {
+                            ArrayList<LinkedList<Integer>> results, LinkedList<Integer> prefix) {
 
         if (first.size() == 0 || second.size() == 0) {
             LinkedList<Integer> result = (LinkedList<Integer>) prefix.clone();
