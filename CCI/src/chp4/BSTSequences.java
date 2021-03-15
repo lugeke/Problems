@@ -9,14 +9,16 @@ import static java.util.stream.Collectors.toList;
 public class BSTSequences {
 
     List<List<Integer>> allSequences(TreeNode root) {
-        allSequences(new HashSet<>(Collections.singleton(root)));
+        ArrayList<TreeNode> level = new ArrayList<>();
+        level.add(root);
+        allSequences(level);
         return result;
     }
 
     private Deque<Integer> stack = new ArrayDeque<>();
     private List<List<Integer>> result = new ArrayList<>();
 
-    private void allSequences(Set<TreeNode> level) {
+    private void allSequences(List<TreeNode> level) {
 
         if (level.isEmpty()) {
             result.add(new ArrayList<>(stack));
