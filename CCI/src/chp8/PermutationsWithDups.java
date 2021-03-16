@@ -2,6 +2,7 @@ package chp8;
 
 
 import ds.Utils;
+
 import java.util.*;
 
 public class PermutationsWithDups {
@@ -10,7 +11,6 @@ public class PermutationsWithDups {
 
     public PermutationsWithDups(String str) {
         chars = str.toCharArray();
-        Arrays.sort(chars);
         result = new ArrayList<>();
     }
 
@@ -25,17 +25,18 @@ public class PermutationsWithDups {
         }
 
         for (int j = i; j < ary.length; j++) {
-            // ❌，有重合
-            if (j != i && chars[i] == chars[j])
-                continue;
-            else if (j > i && chars[j] == chars[j - 1])
-                continue;
-            else {
+            if (!permutedEarlier(ary, i, j, ary[j])){
                 swap(chars, j, i);
                 permutation(ary, i + 1);
                 swap(chars, j, i);
             }
         }
+    }
+
+    private boolean permutedEarlier(char[] nums, int start, int end, int value) {
+        for (int i = start; i < end; i++)
+            if (nums[i] == value) return true;
+        return false;
     }
 
     private void swap(char[] ary, int i, int j) {
@@ -75,7 +76,7 @@ class PermutationsWithDupsC {
                 permutation.append(c);
                 map.put(c, count - 1);
                 permutation();
-                permutation.setLength(permutation.length() - 1);
+                permutation.setLength(permutation.length() - 1);// 模拟pop
                 map.put(c, count);
             }
         }

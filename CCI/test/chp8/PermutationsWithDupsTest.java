@@ -25,11 +25,19 @@ public class PermutationsWithDupsTest {
     }
 
     void test(String str) {
-        PermutationsWithDupsC p = new PermutationsWithDupsC(str);
-        Collection<String> permutations = p.permutations();
+        PermutationsWithDupsC p1 = new PermutationsWithDupsC(str);
+        PermutationsWithDups p2 = new PermutationsWithDups(str);
+
+        Collection<String> permutations1 = p1.permutations();
+        Collection<String> permutations2 = p2.permutations();
         Set<String> set = new HashSet<>(new PermutationsWithoutDups(str).permutations());
 
-        assertEquals(set.size(), permutations.size());
+        assertEquals(set.size(), permutations1.size());
+        assertEquals(set.size(), permutations2.size());
+
+        assertEquals(set, new HashSet<>(permutations1));
+        assertEquals(set, new HashSet<>(permutations2));
+
     }
 
     @Test
