@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class L146LRUCache {
@@ -84,5 +85,27 @@ class DBList {
     Node removeLast() {
         if (head.next == tail) return null;
         return remove(tail.pre);
+    }
+}
+
+
+// 继承LinkedHashMap，重写removeEldestEntry策略
+class LRUCache extends LinkedHashMap<Integer, Integer> {
+
+    private int cache_capacity;
+
+    public LRUCache(int capacity) {
+        super(capacity, 0.75f, true);
+        this.cache_capacity = capacity;
+    }
+
+    @Override
+    public Integer get(Object key) {
+        return super.get(key) == null ? -1 : super.get(key);
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry eldest) {
+        return size() > cache_capacity;
     }
 }
