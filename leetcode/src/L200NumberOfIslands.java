@@ -18,13 +18,16 @@ public class L200NumberOfIslands {
     private static void dfs(char[][] grid, int i, int j, boolean[][] visited) {
         visited[i][j] = true;
         // right
-        if (j < grid[0].length - 1 && grid[i][j + 1] == '1' && !visited[i][j + 1]) dfs(grid, i, j + 1, visited);
+        if (j < grid[0].length - 1) check(grid, i, j + 1, visited);
         // down
-        if (i < grid.length - 1 && grid[i + 1][j] == '1' && !visited[i + 1][j]) dfs(grid, i + 1, j, visited);
+        if (i < grid.length - 1) check(grid, i + 1, j, visited);
         // left
-        if (j > 0 && grid[i][j - 1] == '1' && !visited[i][j - 1]) dfs(grid, i, j - 1, visited);
+        if (j > 0) check(grid, i, j - 1, visited);
         // up
-        if (i > 0 && grid[i - 1][j] == '1' && !visited[i - 1][j]) dfs(grid, i - 1, j, visited);
+        if (i > 0) check(grid, i - 1, j, visited);
     }
 
+    private static void check(char[][] grid, int i, int j, boolean[][] visited) {
+        if (grid[i][j] == '1' && !visited[i][j]) dfs(grid, i, j, visited);
+    }
 }
