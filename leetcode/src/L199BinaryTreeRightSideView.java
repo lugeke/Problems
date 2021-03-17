@@ -22,4 +22,28 @@ public class L199BinaryTreeRightSideView {
         }
         return list;
     }
+
+
+    // 递归写法
+    public List<Integer> rightSideView1(TreeNode root) {
+        List<Integer> list = new ArrayList<Integer>();
+        if (root == null) {
+            return list;
+        }
+        dfs(root, 0, list);
+        return list;
+    }
+
+    private void dfs(TreeNode curr, int level, List<Integer> list) {
+        if (level == list.size()) {
+            list.add(curr.val);
+        }
+
+        if (curr.right != null) {
+            dfs(curr.right, level + 1, list);
+        }
+        if (curr.left != null) {
+            dfs(curr.left, level + 1, list);
+        }
+    }
 }
