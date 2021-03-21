@@ -36,4 +36,27 @@ public class L240SearchA2DMatrixII {
     }
 
 
+    // 从右上角开始比较，不相等则少一行或列
+    public boolean searchMatrix1(int[][] matrix, int target) {
+        if (matrix.length < 1)
+            return false;
+
+        int row = 0;
+        int col = matrix[row].length - 1;
+
+        while (row < matrix.length && col >= 0) {
+            int current = matrix[row][col];
+
+            if (target < current)
+                col--;
+            else if (target > current)
+                row++;
+            else
+                return true;
+        }
+
+        return false;
+    }
+
+
 }
