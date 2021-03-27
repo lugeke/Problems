@@ -17,6 +17,7 @@ public class L93RestoreIPAddresses {
         }
 
 
+        // i 代表该ip子段的长度
         for (int i = 1; i < 4 && (start + i <= s.length); i++) {
             String section = new String(s, start, i);
             // 判断在0到255之间，
