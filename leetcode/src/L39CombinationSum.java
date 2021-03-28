@@ -29,6 +29,7 @@ public class L39CombinationSum {
     }
 
 
+    // 代码简单，速度较快
     static class V2 {
         public static List<List<Integer>> combinationSum(int[] candidates, int target) {
             List<List<Integer>> result = new ArrayList<>();
@@ -42,6 +43,7 @@ public class L39CombinationSum {
 
             if (target == 0) {
                 result.add(new ArrayList<>(path));
+                return;
             }
 
             for (int i = index; i < candidates.length; i++) {
