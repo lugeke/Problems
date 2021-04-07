@@ -18,6 +18,8 @@ public class L31NextPermutation {
             swap(nums, i, k);
             reverse(nums, i + 1, nums.length - 1);
         }
+
+
     }
 
 
