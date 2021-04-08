@@ -17,16 +17,13 @@ public class L34FindFirstAndLastPositionOfElementInSortedArray {
         int i = Arrays.binarySearch(nums, start, end + 1, target);
         if (i < 0) return -1;
 
-        if (left) {
-            int l = binarySearch(nums, target, start, i - 1, true);
-            if (l < 0) l = i;
-            return l;
+        if (left)
+            end = i - 1;
+         else
+            start = i + 1;
 
-        } else {
-            int r = binarySearch(nums, target, i + 1, end, false);
-            if (r < 0) r = i;
-            return r;
-        }
+        int result = binarySearch(nums, target, start, end, left);
+        return result < 0 ? i : result;
     }
 
 
