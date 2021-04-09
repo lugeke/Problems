@@ -4,24 +4,25 @@ import ds.TreeNode;
 public class L129SumRoot2LeafNumbers {
 
     public int sumNumbers(TreeNode root) {
-        dfs(root, new StringBuilder());
+        dfs(root);
         return sum ;
     }
 
     private int sum;
+    // 根节点到当前节点到值
+    private int current;
 
-    private void dfs(TreeNode root, StringBuilder sb) {
+    private void dfs(TreeNode root) {
         if (root == null) return;
-        sb.append(root.val);
+        current = current * 10 + root.val;
 
         if (root.left == null && root.right == null) {
-            sum += Integer.valueOf(sb.toString());
+            sum += current;
         } else {
-            dfs(root.left, sb);
-            dfs(root.right, sb);
+            dfs(root.left);
+            dfs(root.right);
         }
-
-        sb.setLength(sb.length()-1);
+        current /= 10;
     }
 
 
