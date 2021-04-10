@@ -1,4 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
+import static ds.Utils.swap;
 
 public class L215KthLargestElementInAnArray {
 
@@ -30,10 +31,4 @@ public class L215KthLargestElementInAnArray {
         else return kthLargest(nums, index + 1, end, k - (ith + 1));
     }
 
-    private static void swap(int[] ary, int i, int j) {
-        if (i == j) return;
-        int t = ary[i];
-        ary[i] = ary[j];
-        ary[j] = t;
-    }
 }

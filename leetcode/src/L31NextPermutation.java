@@ -1,3 +1,5 @@
+import static ds.Utils.swap;
+
 public class L31NextPermutation {
 
     public static void nextPermutation(int[] nums) {
@@ -29,9 +31,4 @@ public class L31NextPermutation {
         }
     }
 
-    private static void swap(int[] ary, int i, int j) {
-        int t = ary[i];
-        ary[i] = ary[j];
-        ary[j] = t;
-    }
 }
