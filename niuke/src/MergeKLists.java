@@ -32,7 +32,7 @@ public class MergeKLists {
     public static ListNode mergeKListsPriorityQueue(ArrayList<ListNode> lists) {
 
         lists.removeIf(Objects::isNull);
-        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.size(), Comparator.comparingInt(n -> n.val));
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.size(), Comparator.comparingInt(ListNode::getVal));
         queue.addAll(lists);
 
         ListNode dummy = new ListNode(), tail = dummy;

@@ -20,6 +20,10 @@ public class ListNode {
     public ListNode() {
     }
 
+    public int getVal() {
+        return val;
+    }
+
     public ListNode(List<Integer> list) {
         ListNode head = null;
 

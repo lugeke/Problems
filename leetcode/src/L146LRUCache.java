@@ -10,9 +10,9 @@ public class L146LRUCache {
         list = new DBList();
     }
 
-    private int capacity;
-    private DBList list;
-    private Map<Integer, DBList.Node> map;
+    private final int capacity;
+    private final DBList list;
+    private final Map<Integer, DBList.Node> map;
 
     public int get(int key) {
 

@@ -1,4 +1,5 @@
 import ds.TreeNode;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -14,7 +15,7 @@ public class O36convertBinarySearchTree2SortedDoublyLinkedListTest {
 
         TreeNode list = new O36convertBinarySearchTree2SortedDoublyLinkedList().treeToDoublyList(root);
         for (int i = 0; i < 10; i++) {
-            assertEquals(list.val, (i % 5) + 1);
+            Assert.assertEquals(list.val, (i % 5) + 1);
             list = list.right;
         }
     }
@@ -26,7 +27,7 @@ public class O36convertBinarySearchTree2SortedDoublyLinkedListTest {
 
         TreeNode list = new O36convertBinarySearchTree2SortedDoublyLinkedList().treeToDoublyList(root);
         for (int i = 0; i < 10; i++) {
-            assertEquals(list.val, (i % 1) + 1);
+            Assert.assertEquals(list.val, (i % 1) + 1);
             list = list.right;
         }
     }
@@ -37,6 +38,6 @@ public class O36convertBinarySearchTree2SortedDoublyLinkedListTest {
         TreeNode root = null;
 
         TreeNode list = new O36convertBinarySearchTree2SortedDoublyLinkedList().treeToDoublyList(root);
-        assertNull(list);
+        Assert.assertNull(list);
     }
 }
