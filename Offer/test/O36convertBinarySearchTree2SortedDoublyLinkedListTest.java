@@ -3,6 +3,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.Assert.*;
 
@@ -23,11 +24,11 @@ public class O36convertBinarySearchTree2SortedDoublyLinkedListTest {
     @Test
     public void treeToDoublyList2() {
 
-        TreeNode root = new TreeNode(Arrays.asList(1));
+        TreeNode root = new TreeNode(Collections.singletonList(1));
 
         TreeNode list = new O36convertBinarySearchTree2SortedDoublyLinkedList().treeToDoublyList(root);
         for (int i = 0; i < 10; i++) {
-            Assert.assertEquals(list.val, (i % 1) + 1);
+            Assert.assertEquals(list.val, 1);
             list = list.right;
         }
     }

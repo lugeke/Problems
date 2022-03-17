@@ -9,6 +9,8 @@ public class O36convertBinarySearchTree2SortedDoublyLinkedList {
     public TreeNode treeToDoublyList(TreeNode root) {
         if (root == null) return null;
         inorder(root);
+
+        // link a circle
         pre.right = dummy.right;
         dummy.right.left = pre;
 

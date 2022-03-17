@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
 import static org.junit.Assert.*;
@@ -19,7 +20,7 @@ public class MinimalTreeTest {
 
         assertTrue(root.isBST());
         List<Integer> l = new ArrayList<>();
-        root.inOrder(x -> l.add(x.val));
+        root.inOrder((Consumer<TreeNode>) x -> l.add(x.val));
 
 
         // sorted
