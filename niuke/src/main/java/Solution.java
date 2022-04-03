@@ -13,10 +13,10 @@ public class Solution {
 
     private boolean isV4(String ip) {
         String[] split = ip.split("\\.");
-        
+        return true;
     }
 
     private boolean isV6(String ip) {
-
+        return true;
     }
 }

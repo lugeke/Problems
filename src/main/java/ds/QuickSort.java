@@ -1,7 +1,7 @@
 package ds;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import static ds.Utils.swap;
 
 public class QuickSort {
 
@@ -16,11 +16,11 @@ public class QuickSort {
         sort(ary, i+1, high);
     }
 
-    private static int partition(int[] ary, int low, int high) {
+    public static int partition(int[] ary, int low, int high) {
 
         // random num between low and high [low, high]
-        int r = low + ThreadLocalRandom.current().nextInt(high-low + 1);
-        Utils.swap(ary, low, r);
+        int random = ThreadLocalRandom.current().nextInt(low, high + 1);
+        swap(ary, low, random);
 
         // invariant
         // ary[ [low, i) ] <= p
@@ -30,9 +30,9 @@ public class QuickSort {
         int i = low + 1;
         for (int j = i; j <= high; j++)
             if (ary[j] <= p)
-                Utils.swap(ary, j, i++);
+                swap(ary, j, i++);
 
-        Utils.swap(ary, low, i-1);
+        swap(ary, low, i-1);
         return i-1;
     }
 }

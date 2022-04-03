@@ -1,6 +1,6 @@
-package ds;
-
 import chp2.SumLists;
+import ds.ListNode;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -26,10 +26,10 @@ public class ListNodeTest {
     public void reverse() {
 
         ListNode a = new ListNode(Arrays.asList(1,2,3));
-        assertEquals(Arrays.asList(3,2,1), a.reverse().toList());
+        Assert.assertEquals(Arrays.asList(3,2,1), a.reverse().toList());
 
         a = new ListNode(1);
-        assertEquals(Arrays.asList(1), a.reverse().toList());
+        Assert.assertEquals(Arrays.asList(1), a.reverse().toList());
 
 
     }

@@ -6,10 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="CCI" />
+        <module name="leetcode" />
+        <module name="niuke" />
+        <module name="Offer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Offer" target="8" />
+      <module name="CCI" target="1.8" />
+      <module name="leetcode" target="1.8" />
+      <module name="niuke" target="1.8" />
+      <module name="Offer" target="1.8" />
+      <module name="Problems" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
