@@ -12,6 +12,25 @@ public class O12Print1ToMaxOfNDigits {
 
     }
 
+    // 全排列
+    // 递归的写法
+    public static void printR(int n) {
+        if (n < 1) return;
+        char[] number = new char[n];
+        Arrays.fill(number, '0');
+        printR(number, 0);
+    }
+
+    private static void printR(char[] number, int i) {
+        if (i == number.length) printNum(number);
+        else {
+            for (int j = 0; j < 10; j++) {
+                number[i] = (char) ('0' + j);
+                printR(number, i + 1);
+            }
+        }
+    }
+
     private static boolean addOne(char[] num) {
         boolean isOverflow = false;
         int carry = 1;
@@ -43,11 +62,11 @@ public class O12Print1ToMaxOfNDigits {
     }
 
     public static void main(String[] args) {
-        printNum("000123".toCharArray());
-        printNum("123".toCharArray());
-        char[] number = new char[5];
-        printNum(number);
-
-        print(3);
+//        printNum("000123".toCharArray());
+//        printNum("123".toCharArray());
+//        char[] number = new char[5];
+//        printNum(number);
+       // print(3);
+        printR(3);
     }
 }
