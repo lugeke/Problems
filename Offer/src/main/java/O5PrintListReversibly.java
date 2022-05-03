@@ -1,6 +1,6 @@
 import ds.ListNode;
 
-public class O5PrintListReversingly {
+public class O5PrintListReversibly {
 
     public static void print(ListNode head) {
         if (head != null) {

@@ -2,22 +2,21 @@ import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static junitparams.JUnitParamsRunner.$;
 import static org.junit.Assert.*;
 
 @RunWith(JUnitParamsRunner.class)
 public class O11PowerTest {
 
     private static Object[] testData() {
-        return $(
-                $(2, 0, 1),
-                $(2, 3, 8),
-                $(2, -2, 0.25),
+        return new Object[]{
+                new Object[]{2, 0, 1},
+                new Object[]{2, 3, 8},
+                new Object[]{2, -2, 0.25},
 
-                $(-2, 0, 1),
-                $(-2, 3, -8),
-                $(-2, -2, 0.25)
-        );
+                new Object[]{-2, 0, 1},
+                new Object[]{-2, 3, -8},
+                new Object[]{-2, -2, 0.25}
+        };
     }
 
     @Test
