@@ -2,7 +2,7 @@ import ds.Utils;
 
 import java.util.function.Predicate;
 
-public class O15Reorder {
+public class O14Reorder {
 
     /**
      * reorder the ary by belongFirstPart standard
